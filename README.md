@@ -1,13 +1,12 @@
-1. About the Dataset
+# 1. About the Dataset
 The Real Waste dataset consists of real-world images of waste materials classified into ten categories: Glass, Cardboard, Metal, Food Organics, Paper, Plastic, Miscellaneous Trash, Vegetation, and Textile Trash, as shown in the category visualization. The images are organized into folders, each named after a waste type, and loaded using torchvision.datasets.ImageFolder. Each image is color (RGB) and resized to 224x224 pixels as part of preprocessing.
 Dataset Size: The dataset was split into 70% training, 10% validation, and 20% testing. Exact class counts are printed at dataset creation.
 Column Types: The main data is image pixel data (three channels) and folder category labels.
-2. About the Model
+
+# 2. About the Model
 A custom CNN, SimpleCNN, was implemented with the following architecture:
 5 convolutional blocks (increasing from 64 to 512 channels), each followed by ReLU activation and MaxPooling, capturing spatial hierarchies.
 Adaptive average pooling, flattening, and a single linear layer mapping to 10 waste classes.
-
-
 
 Training Details:
 Optimizer: Adam
@@ -16,9 +15,7 @@ Epochs: 10
 Input size: 224x224
 Loss: Steady improvement is observed; by epoch 10, validation loss is 1.38
 
-
-
-3. About Grad-CAM
+# 3. About Grad-CAM
 The Grad-CAM technique was implemented based on the reference PyTorch implementation, with code adaptation for this specific network. Grad-CAM enables visualization of the importance of input regions contributing to model predictions by utilizing gradients flowing into the last convolutional layer.
 Implementation summary:
 Forward and backward hooks are attached to the target convolutional layer to capture activations and gradients.
